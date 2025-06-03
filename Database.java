@@ -2,7 +2,6 @@ import java.util.ArrayList;
 public class Database {
 
     public static final int STARTING_HEALTH = 100;
-    private static ArrayList<PowerUp> powerDataBase = new ArrayList<PowerUp>();
     private static ArrayList<QuizWord> quizList = new ArrayList<QuizWord>();
     private static ArrayList<WordleWord> wordleList = new ArrayList<WordleWord>();
     private static ArrayList<HangmanWord> hangList = new ArrayList<HangmanWord>();
@@ -11,12 +10,9 @@ public class Database {
 
 
     public Database(){
-            powerDataBase.add(new PowerUp("WorldeDistance", "If the letter is in the word and you guess wrong, the distance from its place is shown",
-             "wordle"));
-
 
              quizList.add(new QuizWord("An egg!", "What has to be broken before you can use it? _"));
-             quizList.add(new QuizWord("A candle", "I’m tall when I’m young, and I’m short when I’m old. What am I?\r\n" + //
+             quizList.add(new QuizWord("A candle", "I'm tall when I'm young, and I'm short when I'm old. What am I?\r\n" + //
                                   "_"));
              quizList.add(new QuizWord("A sponge", " What is full of holes but still holds water?_"));
              quizList.add(new QuizWord("Replace the t with an i!", "How do you make easter easier? _"));
@@ -125,14 +121,18 @@ public class Database {
                 //wordle
                 WordleWord word = new WordleWord(wordleList.get(index).getWordString());
                 wordleList.set(index, word);
+                break;
             case 2:
-                QuizWord word2 = new QuizWord(quizList.get(index).getWordString(), 
-                quizList.get(index).getQuestion());
+                String question = quizList.get(index).getQuestion();
+                String wordString = quizList.get(index).getWordString();
+                QuizWord word2 = new QuizWord(wordString, question);
                 quizList.set(index, word2);
                 //quiz
+                break;
             case 3:
                 HangmanWord word3 = new HangmanWord(hangList.get(index).getWordString());
                 hangList.set(index, word3);
+                break;
                 //hangMan
         }
     }
