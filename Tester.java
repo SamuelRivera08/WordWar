@@ -30,16 +30,19 @@ public class Tester
                playWordle(Database.getWordleWord(random2));
                score+=10;
                Database.resetWord(1,random2);
+               break;
             case 2:
                random2 = (int)(Math.random() * Database.getLength(random1)); //random int between 0 and 1 less than the length of list being accessed
                playQuiz(Database.getQuizWord(random2));
                score +=5;
                Database.resetWord(2,random2);
+               break;
             case 3:
                random2 = (int)(Math.random() * Database.getLength(random1)); //random int between 0 and 1 less than the length of list being accessed
                playHangman(Database.getHangmanWord(random2));
                score +=10;
                Database.resetWord(3,random2);
+               break;
          }
 
       }
